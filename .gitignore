@@ -40,6 +40,16 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+client/node_modules
+client/.pnp
+client/.pnp.js
+
+
+# testing
+client/coverage
+
+# production
+client/build
 
 # TypeScript v1 declaration files
 typings/
