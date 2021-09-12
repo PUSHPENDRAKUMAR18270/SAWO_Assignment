@@ -25,9 +25,12 @@ const TweetPage = ()=>{
           'Accept': 'application/json'
           }
       };
-      fetch('/tweet',requestOptions)
-      .then(()=> {
-          toast.success('Your Tweet is Posted')
+      fetch('/api/tweet',requestOptions)
+      .then((res)=> {
+        if (res.status >= 400) {
+          toast.error('error occured! please try again')
+        }
+        else toast.success('Your Tweet is Posted')
       })
       .catch((error) => {
           toast.error('error occured please try again')

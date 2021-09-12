@@ -15,7 +15,7 @@ const YourTweetsPage = ()=>{
         'Accept': 'application/json'
         }
     };
-    fetch('/feed',requestOptions)
+    fetch('/api/feed',requestOptions)
     .then(response => response.json())
     .then((data)=> {
         setUserFeed(data)

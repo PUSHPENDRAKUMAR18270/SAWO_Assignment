@@ -23,7 +23,7 @@ const EditTweetPage = ()=>{
         'Accept': 'application/json'
         }
     };
-    let url = "/tweet/"+id
+    let url = "/api/tweet/"+id
     fetch(url,requestOptions)
     .then(response =>response.json())
     .then(data =>{
@@ -40,9 +40,15 @@ const EditTweetPage = ()=>{
           'Accept': 'application/json'
           }
       };
-      fetch('/tweet/edit',requestOptions)
-      .then(()=> {
+      fetch('/api/tweet/edit',requestOptions)
+      .then((res)=> {
+        if (res.status >= 400) {
+          toast.error('error occured! please try again')
+        }
+        else{
           toast.success('Your Tweet is Edited')
+        }
+          
       })
       .catch((error) => {
           toast.error('error occured please try again')

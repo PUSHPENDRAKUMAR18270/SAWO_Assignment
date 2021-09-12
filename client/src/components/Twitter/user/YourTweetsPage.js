@@ -15,7 +15,7 @@ const YourTweetsPage = ()=>{
         'Accept': 'application/json'
         }
     };
-    fetch('/user-tweets',requestOptions)
+    fetch('/api/user-tweets',requestOptions)
     .then(response => response.json())
     .then((data)=> {
         setUserTweets(data)

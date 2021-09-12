@@ -12,7 +12,7 @@ const DeleteTweetPage = ()=>{
         'Accept': 'application/json'
         }
     };
-    fetch('/tweet/delete',requestOptions)
+    fetch('/api/tweet/delete',requestOptions)
   },[id])
   
   return (
