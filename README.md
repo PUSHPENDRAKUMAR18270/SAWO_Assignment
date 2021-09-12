@@ -1,5 +1,8 @@
 # SAWO_Assignment
 
+# Deploy
+https://sawo-twitter.herokuapp.com/
+
 # Tech Stack
 ## Backend
 - Express + MongoDB

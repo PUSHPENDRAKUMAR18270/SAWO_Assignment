@@ -3,9 +3,14 @@ import Nav from '../components/Nav/NavBar'
 const HomePage = ()=>{
   return (
     <div>
-      <Nav/>
-      <h1 style={{"margin":"50px 40% 0 40%"}}>HomePage</h1>
+        <Nav/>
+        <div style={{ 
+          backgroundImage: `url("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/socialmedia/twitter/53/bird_1f426.png")` 
+          ,"height":"90vh","backgroundPosition":"center center","backgroundSize":"cover"
+        }}> 
     </div>
+    </div>
+    
   )
 }
 
