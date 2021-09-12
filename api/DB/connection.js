@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-require('dotenv').config();
 
 /*connects to database schedulerDB */
 module.exports.connection = function () {
