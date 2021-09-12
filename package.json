@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd api && node index.js",
-    "build":"cd client && npm run build",
+    "start": "node api/index.js",
+    "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "npm run install-client && npm run build"
@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "m": "^1.6.0",
     "mongoose": "^5.0.0",
+    "path": "^0.12.7",
     "react-toastify": "^8.0.2"
   }
 }

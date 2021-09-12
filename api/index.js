@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const path = require('path');
 
 const DB = require("./DB/connection")
 const tweetsDB = require("./DB/collections/tweetCollection")
