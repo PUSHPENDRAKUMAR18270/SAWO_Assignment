@@ -1,9 +1,8 @@
 import {React,useEffect} from 'react';
-import  { Redirect } from 'react-router-dom'
+import  { Redirect,useParams } from 'react-router-dom'
 
-const DeleteTweetPage = (props)=>{
-  // const id = props.match.params.id
-  const id = ''
+const DeleteTweetPage = ()=>{
+  const { id } = useParams()
   useEffect(()=>{
     const requestOptions = {
         method: 'POST',
@@ -14,7 +13,7 @@ const DeleteTweetPage = (props)=>{
         }
     };
     fetch('/tweet/delete',requestOptions)
-  },[])
+  },[id])
   
   return (
     <Redirect to = '/your-tweets'/>

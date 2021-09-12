@@ -24,9 +24,11 @@ function App() {
         <Route path="/login" exact>
           <LoginPage />
         </Route>
+
         <Route path="/logout" exact>
           <LogoutPage />
         </Route>
+
         <Route path="/tweet" exact render={() => (
             loggedIn ? (
              <TweetPage/>
@@ -45,11 +47,12 @@ function App() {
 
         <Route path="/tweet/edit/:id" exact render={() => (
             loggedIn ? (
-             <EditTweetPage/>
+             <EditTweetPage />
           ) : (
             <LoginPage/>
           )
         )}/>
+
         <Route path="/tweet/delete/:id" exact render={() => (
             loggedIn ? (
              <DeleteTweetPage/>
