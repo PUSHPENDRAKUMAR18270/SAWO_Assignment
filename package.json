@@ -6,7 +6,9 @@
   "scripts": {
     "start": "cd api && node index.js",
     "build":"cd client && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install-client": "cd client && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm run install-client && npm run build"
   },
   "repository": {
     "type": "git",
