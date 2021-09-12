@@ -1,5 +1,6 @@
-import {useState,React} from 'react';
+import {useState,React, useEffect} from 'react';
 import {Form,Button} from 'react-bootstrap';
+import  { useParams } from 'react-router-dom'
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../../Nav/NavBar'
@@ -7,18 +8,33 @@ import '../CSS/TweetPage.css'
 
 toast.configure();
 
-const EditTweetPage = (props)=>{
+const EditTweetPage = ()=>{
   
+  const { id } = useParams()
   const [tweet, updateTweet] = useState("")
-
   const handleTweetBoxChange = (e)=>{
     updateTweet(e.target.value)
   }
+  useEffect(()=>{
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+    };
+    let url = "/tweet/"+id
+    fetch(url,requestOptions)
+    .then(response =>response.json())
+    .then(data =>{
+        updateTweet(data['tweet'])
+    })
+  },[id])
   const editTweet = (e)=>{
       e.preventDefault()
       const requestOptions = {
           method: 'POST',
-          body: JSON.stringify({'id':props.id,'tweet':tweet}),
+          body: JSON.stringify({'id':id,'tweet':tweet}),
           headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -38,7 +54,7 @@ const EditTweetPage = (props)=>{
       <Form className="tweetBox" onSubmit={editTweet}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Tweet</Form.Label>
-          <Form.Control  required as="textarea" rows={4} onChange={handleTweetBoxChange} >props.tweet</Form.Control>
+          <Form.Control  required as="textarea" rows={4} onChange={handleTweetBoxChange} defaultValue = {tweet}/>
         </Form.Group>
         <Button variant="primary" type = "submit">
           Edit

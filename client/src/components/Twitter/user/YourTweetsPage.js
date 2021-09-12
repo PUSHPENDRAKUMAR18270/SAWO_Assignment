@@ -30,7 +30,7 @@ const YourTweetsPage = ()=>{
       {userTweets.length !== 0? userTweets.map((value,index) => {
         return <UserTweet key={index} id ={value['_id']} tweet={value['tweet']} lastModifiedOn = {value['lastModifiedOn']}/>
       }):(
-        <h1 style={{"margin":"50px 30% 0 30%"}}>You have not tweeted yet!!</h1>
+        <h1 style={{"margin":"50px 30% 0 30%"}}>You don't have any tweets</h1>
       )}
     </div>
   )
